@@ -1,0 +1,292 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Wireless Headphones",
+      "price": 99.99,
+      "description": "Premium wireless headphones with noise cancellation and 30-hour battery life. Perfect for music lovers and professionals.",
+      "category": "electronics",
+      "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&h=500&fit=crop",
+      "rating": "★★★★★"
+    },
+    {
+      "id": 2,
+      "title": "Smart Watch",
+      "price": 249.99,
+      "description": "Feature-rich smartwatch with fitness tracking, heart rate monitor, and smartphone notifications. Water-resistant design.",
+      "category": "electronics",
+      "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&h=500&fit=crop",
+      "rating": "★★★☆☆"
+    },
+    {
+      "id": 3,
+      "title": "Laptop Stand",
+      "price": 49.99,
+      "description": "Ergonomic aluminum laptop stand that improves posture and workspace organization. Adjustable height and angle.",
+      "category": "accessories",
+      "image": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500&h=500&fit=crop",
+      "rating": "★★★★☆"
+    },
+    {
+      "id": 4,
+      "title": "Mechanical Keyboard",
+      "price": 129.99,
+      "description": "RGB backlit mechanical keyboard with Cherry MX switches. Perfect for gaming and typing enthusiasts.",
+      "category": "electronics",
+      "image": "https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=500&h=500&fit=crop",
+      "rating": "★★★☆☆"
+    },
+    {
+      "id": 5,
+      "title": "USB-C Hub",
+      "price": 39.99,
+      "description": "Multi-port USB-C hub with HDMI, USB 3.0, and SD card reader. Expand your laptop connectivity.",
+      "category": "electronics",
+      "image": "https://images.unsplash.com/photo-1625842268584-8f3296236761?w=500&h=500&fit=crop",
+      "rating": "★★★☆☆"
+    },
+    {
+      "id": 6,
+      "title": "Wireless Mouse",
+      "price": 29.99,
+      "description": "Ergonomic wireless mouse with precision tracking and long battery life. Comfortable for extended use.",
+      "category": "electronics",
+      "image": "https://images.unsplash.com/photo-1527814050087-3793815479db?w=500&h=500&fit=crop",
+      "rating": "★★★★★"
+    },
+    {
+      "id": 7,
+      "title": "Monitor Stand",
+      "price": 79.99,
+      "description": "Dual monitor stand with adjustable height and tilt. Frees up desk space and improves ergonomics.",
+      "category": "accessories",
+      "image": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=500&h=500&fit=crop",
+      "rating": "★★★☆☆"
+    },
+    {
+      "id": 8,
+      "title": "Webcam HD",
+      "price": 89.99,
+      "description": "1080p HD webcam with auto-focus and built-in microphone. Ideal for video calls and streaming.",
+      "category": "electronics",
+      "image": "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=500&h=500&fit=crop",
+      "rating": "★★★★★"
+    },
+    {
+      "id": 9,
+      "title": "Bluetooth Speaker",
+      "price": 59.99,
+      "description": "Portable Bluetooth speaker with deep bass and 12-hour battery life. Perfect for outdoor parties and travel.",
+      "category": "electronics",
+      "image": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop",
+      "rating": "★★★☆☆"
+    },
+    {
+      "id": 10,
+      "title": "Gaming Mouse Pad",
+      "price": 19.99,
+      "description": "Large RGB gaming mouse pad with smooth surface for precise tracking. Anti-slip rubber base.",
+      "category": "accessories",
+      "image": "https://images.unsplash.com/photo-1629429408209-1f912961dbd8?w=500&h=500&fit=crop",
+      "rating": "★★☆☆☆"
+    },
+    {
+      "id": 11,
+      "title": "External SSD",
+      "price": 149.99,
+      "description": "High-speed portable SSD with 1TB storage. Perfect for backups, gaming, and fast file transfers.",
+      "category": "electronics",
+      "image": "https://images.unsplash.com/photo-1591488320449-011701bb6704?w=500&h=500&fit=crop",
+      "rating": "★★★★☆"
+    },
+    {
+      "id": 12,
+      "title": "Noise Cancelling Earbuds",
+      "price": 119.99,
+      "description": "True wireless earbuds with active noise cancellation and crystal-clear sound quality.",
+      "category": "electronics",
+      "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500&h=500&fit=crop",
+      "rating": "★★★★★"
+    },
+    {
+      "id": 13,
+      "title": "4K Monitor",
+      "price": 399.99,
+      "description": "Ultra HD 27-inch 4K monitor with vibrant colors and ultra-thin bezels. Ideal for designers and developers.",
+      "category": "electronics",
+      "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&h=500&fit=crop",
+      "rating": "★★☆☆☆"
+    },
+    {
+      "id": 14,
+      "title": "Laptop Backpack",
+      "price": 69.99,
+      "description": "Durable laptop backpack with multiple compartments and USB charging port. Perfect for travel and work.",
+      "category": "bags",
+      "image": "https://images.unsplash.com/photo-1514474959185-1472d4c4e0d4?w=500&h=500&fit=crop",
+      "rating": "★★★★☆"
+    },
+    {
+      "id": 16,
+      "title": "Desk LED Lamp",
+      "price": 34.99,
+      "description": "Modern LED desk lamp with adjustable brightness and color temperature. Perfect for study and work.",
+      "category": "accessories",
+      "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=500&h=500&fit=crop",
+      "rating": "★★★☆☆"
+    },
+    {
+      "id": 17,
+      "title": "Portable Power Bank",
+      "price": 44.99,
+      "description": "High-capacity portable power bank with fast charging support. Ideal for charging smartphones, tablets, and other devices on the go.",
+      "category": "electronics",
+      "image": "https://images.unsplash.com/photo-1687007081879-7c98c5d2487f?w=500&h=500&fit=crop",
+      "rating": "★★★★☆"
+    },
+    {
+      "id": 18,
+      "title": "Wireless Charging Pad",
+      "price": 27.99,
+      "description": "Fast wireless charger compatible with iPhone and Android devices.",
+      "category": "electronics",
+      "image": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=500&h=500&fit=crop",
+      "rating": "★★★★★"
+    },
+    {
+      "id": 19,
+      "title": "Office Chair Cushion",
+      "price": 39.99,
+      "description": "Memory foam seat cushion for improved posture and comfort during long work hours.",
+      "category": "accessories",
+      "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&h=500&fit=crop",
+      "rating": "★★★★☆"
+    },
+    {
+      "id": 20,
+      "title": "Cable Organizer Box",
+      "price": 19.99,
+      "description": "Neat cable management box to hide messy wires and chargers.",
+      "category": "accessories",
+      "image": "https://images.unsplash.com/photo-1629429408209-1f912961dbd8?w=500&h=500&fit=crop",
+      "rating": "★★☆☆☆"
+    },
+    {
+      "id": 22,
+      "title": "Portable Monitor",
+      "price": 299.99,
+      "description": "15.6-inch Full HD portable USB-C monitor for on-the-go productivity.",
+      "category": "electronics",
+      "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500&h=500&fit=crop",
+      "rating": { "rate": 4.6, "count": 290 }
+    },
+    {
+      "id": 24,
+      "title": "RGB Gaming Headset",
+      "price": 79.99,
+      "description": "Comfortable over-ear gaming headset with noise-canceling microphone.",
+      "category": "electronics",
+      "image": "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=500&h=500&fit=crop",
+      "rating": "★★★★☆"
+    },
+    {
+      "id": 25,
+      "title": "Minimalist Desk Mat",
+      "price": 25.99,
+      "description": "Large premium leather desk pad for a clean and professional workspace.",
+      "category": "accessories",
+      "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&h=500&fit=crop",
+      "rating": "★★★☆☆"
+    },
+    {
+      "id": 26,
+      "title": "Smart Ring",
+      "price": 189.99,
+      "description": "Advanced health and fitness tracking smart ring.",
+      "category": "electronics",
+      "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&h=500&fit=crop",
+      "rating": "★★★★☆"
+    },
+    {
+      "id": 27,
+      "title": "Travel Power Adapter",
+      "price": 22.99,
+      "description": "Universal international travel adapter with USB ports.",
+      "category": "electronics",
+      "image": "https://images.unsplash.com/photo-1687007081879-7c98c5d2487f?w=500&h=500&fit=crop",
+      "rating": "★★★★☆"
+    },
+    {
+      "id": 29,
+      "title": "Wireless Keyboard",
+      "price": 59.99,
+      "description": "Slim rechargeable wireless keyboard with quiet keys.",
+      "category": "electronics",
+      "image": "https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=500&h=500&fit=crop",
+      "rating": "★★☆☆☆"
+    },
+    {
+      "id": 31,
+      "title": "Adjustable Laptop Riser",
+      "price": 32.99,
+      "description": "Portable foldable laptop stand with multiple height settings.",
+      "category": "accessories",
+      "image": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500&h=500&fit=crop",
+      "rating": "★★★☆☆"
+    },
+    {
+      "id": 32,
+      "title": "Noise Cancelling Microphone",
+      "price": 69.99,
+      "description": "USB condenser microphone with excellent noise isolation.",
+      "category": "electronics",
+      "image": "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=500&h=500&fit=crop",
+      "rating": "★☆☆☆☆"
+    },
+    {
+      "id": 33,
+      "title": "Tech Organizer Pouch",
+      "price": 18.99,
+      "description": "Compact travel pouch for cables, chargers, and small gadgets.",
+      "category": "bags",
+      "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop",
+      "rating": "★★★★☆"
+    },
+    {
+      "id": 34,
+      "title": "LED Ring Light",
+      "price": 45.99,
+      "description": "10-inch selfie ring light with tripod stand and phone holder.",
+      "category": "accessories",
+      "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=500&h=500&fit=crop",
+      "rating": "★★★☆☆"
+    },
+    {
+      "id": 35,
+      "title": "Wireless Earbuds Case",
+      "price": 14.99,
+      "description": "Protective silicone case with keychain for AirPods.",
+      "category": "accessories",
+      "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500&h=500&fit=crop",
+      "rating": "★★★★★"
+    },
+    {
+      "id": 36,
+      "title": "Minimal Desk Clock",
+      "price": 28.99,
+      "description": "Modern digital desk clock with temperature display.",
+      "category": "accessories",
+      "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=500&h=500&fit=crop",
+      "rating": "★★★☆☆"
+    },
+    {
+      "id": 37,
+      "title": "USB Desk Fan",
+      "price": 22.99,
+      "description": "Quiet USB-powered portable desk fan with adjustable speed.",
+      "category": "electronics",
+      "image": "https://images.unsplash.com/photo-1625842268584-8f3296236761?w=500&h=500&fit=crop",
+      "rating": "★★★★★"
+    }
+  ]
+}
