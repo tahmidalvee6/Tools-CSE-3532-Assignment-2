@@ -1,0 +1,60 @@
+{
+  "reviews": [
+    {
+      "name": "Cristiano Ronaldo",
+      "image": "https://placehold.co/100x100/FF6B00/white?text=CR7",
+      "rating": "★★★★★",
+      "review": "Great products and very fast delivery! I am very happy with my purchase. Will definitely be ordering again from SmartShop!",
+      "date": "2026-04-10"
+    },
+    {
+      "name": "John Cena",
+      "image": "https://placehold.co/100x100/0047AB/white?text=JC",
+      "rating": "★★★★☆",
+      "review": "Good quality products. The packaging was neat and delivery was on time. Will definitely buy again from SmartShop.",
+      "date": "2026-04-15"
+    },
+    {
+      "name": "Michael Jackson",
+      "image": "https://placehold.co/100x100/8B008B/white?text=MJ",
+      "rating": "★★★★★",
+      "review": "Nice website! Very easy to use and navigate. The product quality is amazing. Highly recommended to everyone!",
+      "date": "2026-04-20"
+    },
+    {
+      "name": "Chandler Bing",
+      "image": "https://placehold.co/100x100/228B22/white?text=CB",
+      "rating": "★★★★★",
+      "review": "Product was exactly as described. No complaints at all. Customer service was also very helpful and responsive.",
+      "date": "2026-05-01"
+    },
+    {
+      "name": "Rachel Green",
+      "image": "https://placehold.co/100x100/FF1493/white?text=RG",
+      "rating": "★★★★☆",
+      "review": "Very satisfied with my purchase. Great value for money! The shipping was super fast too. 10/10 experience overall.",
+      "date": "2026-05-02"
+    },
+    {
+      "name": "Jaime Lannister",
+      "image": "https://placehold.co/100x100/C0C0C0/black?text=JL",
+      "rating": "★★★★★",
+      "review": "I'm really impressed with SmartShop. The range of products is excellent and pricing is very competitive. Loved it!",
+      "date": "2026-05-03"
+    },
+    {
+      "name": "Walter White",
+      "image": "https://placehold.co/100x100/32CD32/black?text=WW",
+      "rating": "★★★★★",
+      "review": "Say my name. SmartShop. That's right. Outstanding service, fast shipping, quality products. I always win with SmartShop.",
+      "date": "2026-05-04"
+    },
+    {
+      "name": "Taylor Swift",
+      "image": "https://placehold.co/100x100/FF69B4/white?text=TS",
+      "rating": "★★★★☆",
+      "review": "I've shopped all around the world and SmartShop is genuinely one of the best. Fast, reliable, and such great quality!",
+      "date": "2026-05-04"
+    }
+  ]
+}
