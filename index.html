@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="app.css">
+    <title>SmartShop</title>
+</head>
+
+<body>
+    <!-- Navbar Section -->
+    <nav class="sticky top-0 z-50 bg-gray-900 border-b border-white/10 shadow-lg">
+        <div class="w-full px-4 sm:px-6 lg:px-24 h-16 flex items-center justify-between gap-4">
+            <a href="#home" class="text-white text-xl sm:text-2xl font-bold shrink-0">🏪 SmartShop</a>
+
+            <div class="hidden sm:flex gap-4 lg:gap-8 items-center absolute left-1/2 -translate-x-1/2">
+                <a href="#home" class="text-sm text-gray-300 hover:text-white">Home</a>
+                <a href="#products" class="text-sm text-gray-300 hover:text-white">Products</a>
+                <a href="#reviews" class="text-sm text-gray-300 hover:text-white">Reviews</a>
+                <a href="#about" class="text-sm text-gray-300 hover:text-white">About Us</a>
+                <a href="#contact" class="text-sm text-gray-300 hover:text-white">Contact</a>
+            </div>
+
+            <div class="flex gap-2 sm:gap-4 items-center shrink-0 ml-auto">
+                <div class="hidden sm:flex items-center">
+                    <input id="searchInput" type="text" placeholder="Search products..." onfocus="goToProducts()"
+                        onkeyup="filterProducts()"
+                        class="w-36 sm:w-44 lg:w-56 px-4 py-2 rounded-l-lg text-sm font-bold bg-[#E8F0FE] text-black border border-white/10 outline-none placeholder-gray-400">
+                    <button onclick="filterProducts()"
+                        class="px-4 py-2 bg-orange-500 hover:bg-orange-400 text-white text-sm font-medium rounded-r-lg border border-orange-500 transition-colors duration-200">
+                        Search
+                    </button>
+                </div>
+
+                <button onclick="my_modal_1.showModal()" class="relative text-white text-xl">
+                    <div class="indicator" data-theme="dark">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        <span class="badge badge-sm indicator-item" id="cart-count">0</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- DaisyUI Cart Modal -->
+    <dialog id="my_modal_1" class="modal">
+        <div class="modal-box bg-white border border-gray-200 rounded-3xl p-6 sm:p-8 w-full max-w-sm sm:max-w-md shadow-2xl text-gray-900"
+            style="font-family: 'Courier New', monospace;">
+
+            <div class="flex justify-center mb-6">
+                <span
+                    class="border border-gray-300 px-8 sm:px-10 py-2 rounded-xl text-base sm:text-lg font-bold tracking-widest uppercase text-gray-800">CART</span>
+            </div>
+
+            <div class="flex items-center gap-3 mb-4">
+                <div
+                    class="flex-1 border border-gray-200 rounded-xl px-4 py-3 text-sm font-bold tracking-wide bg-gray-50">
+                    Balance</div>
+                <div class="flex-1 border border-gray-200 rounded-xl px-4 py-3 text-center font-bold bg-gray-50"><span
+                        class="total-bal"></span></div>
+            </div>
+
+            <div class="flex items-center gap-3 mb-4">
+                <div
+                    class="flex-1 border border-gray-200 rounded-xl px-4 py-3 text-sm font-bold tracking-wide bg-gray-50">
+                    Add Money</div>
+                <input id="money-input" type="number"
+                    class="w-24 sm:w-28 bg-gray-50 border border-gray-200 rounded-xl px-3 py-3 text-sm outline-none text-gray-900 text-center">
+                <button id="add-money"
+                    class="border border-gray-200 rounded-xl px-4 sm:px-5 py-3 text-sm font-bold hover:bg-gray-100 bg-gray-50">Add</button>
+            </div>
+
+            <div class="flex items-center gap-3 mb-4">
+                <div
+                    class="flex-1 border border-gray-200 rounded-xl px-4 py-3 text-sm font-bold tracking-wide bg-gray-50">
+                    Cart</div>
+                <div
+                    class="flex-1 border border-gray-200 rounded-xl px-4 py-3 text-center font-bold text-red-500 bg-gray-50">
+                    <span id="cart-money">00</span>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3 mb-4">
+                <div
+                    class="flex-1 border border-gray-200 rounded-xl px-4 py-3 text-sm font-bold tracking-wide bg-gray-50">
+                    Delivery + Shiping Cost</div>
+                <div
+                    class="flex-1 border border-gray-200 rounded-xl px-4 py-3 text-center font-bold text-red-500 bg-gray-50">
+                    120</div>
+            </div>
+
+            <div class="flex items-center gap-3 mb-4">
+                <div
+                    class="flex-1 border border-gray-200 rounded-xl px-4 py-3 text-sm font-bold tracking-wide bg-gray-50">
+                    Cupon</div>
+                <input id="cupon-input"
+                    class="w-24 sm:w-28 bg-gray-50 border border-gray-200 rounded-xl px-3 py-3 text-sm outline-none text-gray-900 text-center">
+                <button id="add-cupon"
+                    class="border border-gray-200 rounded-xl px-4 sm:px-5 py-3 text-sm font-bold hover:bg-gray-100 bg-gray-50">Add</button>
+            </div>
+
+            <div
+                class="border border-gray-300 rounded-xl px-4 py-4 text-center font-bold text-base tracking-wide mb-5 bg-orange-50 text-orange-600">
+                Total Cost = <span id="final-bal"></span>
+            </div>
+
+            <button id="place-order"
+                class="w-full bg-orange-500 text-white rounded-xl py-3 text-sm font-bold hover:bg-orange-900 tracking-widest uppercase transition-colors">
+                Place Order
+            </button>
+            <form method="dialog">
+                <button
+                    class="mt-3 w-full bg-gray-500 text-white rounded-xl py-3 text-sm font-bold hover:bg-gray-900 tracking-widest uppercase transition-colors">
+                    Close
+                </button>
+            </form>
+        </div>
+
+        <form method="dialog" class="modal-backdrop">
+            <button>close</button>
+        </form>
+    </dialog>
+
+    <!-- Hero Section -->
+    <div class="w-full min-h-screen">
+        <section id="home" class="relative w-full overflow-hidden" style="height: calc(100vh - 64px);">
+
+            <!-- Slides Track -->
+            <div id="carouselTrack" class="flex w-full h-full transition-transform duration-700 ease-in-out">
+                <div class="min-w-full h-full flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f" alt="Banner 1"
+                        class="w-full h-full object-cover" />
+                </div>
+                <div class="min-w-full h-full flex-shrink-0">
+                    <img src="https://images.unsplash.com/photo-1607082349566-187342175e2f" alt="Banner 2"
+                        class="w-full h-full object-cover" />
+                </div>
+                <div class="min-w-full h-full flex-shrink-0">
+                    <img src="https://plus.unsplash.com/premium_photo-1672759267924-75256069ac7e?q=80&w=1369&auto=format&fit=crop"
+                        alt="Banner 3" class="w-full h-full object-cover" />
+                </div>
+            </div>
+
+            <!-- Prev Button -->
+            <button id="carouselPrev"
+                class="absolute left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white flex items-center justify-center hover:bg-white/40 transition-colors cursor-pointer">
+                ❮
+            </button>
+
+            <!-- Next Button -->
+            <button id="carouselNext"
+                class="absolute right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white flex items-center justify-center hover:bg-white/40 transition-colors cursor-pointer">
+                ❯
+            </button>
+
+            <!-- Hero Overlay Text -->
+            <div class="absolute inset-0 flex items-center px-6 sm:px-12 lg:px-24 pointer-events-none"
+                style="background: linear-gradient(105deg, rgba(10,8,6,0.72) 0%, rgba(10,8,6,0.35) 55%, transparent 100%);">
+                <div class="max-w-xs sm:max-w-sm lg:max-w-lg pointer-events-auto">
+                    <span
+                        class="inline-block text-xs font-bold tracking-widest uppercase border border-orange-500 text-orange-500 px-3 py-1 rounded mb-4 sm:mb-5">Limited
+                        Time Offer</span>
+                    <h1 class="text-white text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight mb-4">Mega Sale<br>Up
+                        to 50% Off</h1>
+                    <p class="text-white text-sm sm:text-base font-light mb-6 sm:mb-8 opacity-75">Shop the best deals on
+                        electronics, fashion & more — all in one place.</p>
+                    <a href="#products"
+                        class="inline-block text-white bg-orange-500 px-5 sm:px-7 py-2 sm:py-3 rounded text-sm font-semibold">Shop
+                        Now →</a>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <!-- Product Section -->
+    <div id="products" class="w-full px-4 sm:px-6 pt-12 sm:pt-20">
+        <div class="mb-8 sm:mb-9 text-center">
+            <p class="text-xs font-bold tracking-widest uppercase mb-2 text-orange-500">What We Offer</p>
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">Featured Products</h2>
+        </div>
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+        </div>
+    </div>
+
+
+    <!-- Reviews Section -->
+    <div class="w-full px-4 sm:px-48 pt-12 sm:pt-20">
+
+        <div class="mb-8 sm:mb-10 text-center">
+            <p class="text-xs font-bold tracking-widest uppercase mb-2 text-orange-500">
+                Testimonials
+            </p>
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">
+                What Our Customers Say
+            </h2>
+        </div>
+
+        <!-- CAROUSEL -->
+        <div id="reviews" class="carousel carousel-end w-full gap-4 p-4 overflow-x-auto scroll-smooth">
+        </div>
+
+        <!-- BUTTONS -->
+        <div class="flex justify-center gap-4 mt-4">
+            <button onclick="prevReview()" class="px-4 py-2 bg-gray-200 rounded">
+                <
+            </button>
+            <button onclick="nextReview()" class="px-4 py-2 bg-gray-200 rounded">
+                >
+            </button>
+        </div>
+
+    </div>
+
+    <!-- About Us Section -->
+    <div id="about" class="w-full px-4 sm:px-6 pt-12 sm:pt-20 pb-12 sm:pb-20 bg-stone-50">
+        <div class="max-w-screen-xl mx-auto">
+
+            <div class="mb-10 sm:mb-14 text-center">
+                <p class="text-xs font-bold tracking-widest uppercase mb-2 text-orange-500">Who We Are</p>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">About SmartShop</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-12 sm:mb-16">
+                <img src="https://i.pinimg.com/1200x/39/14/5c/39145c30a4d40254d55c4aa41674de3e.jpg"
+                    class="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-2xl" alt="About SmartShop">
+                <div>
+                    <span
+                        class="inline-block text-xs font-bold tracking-widest uppercase border border-orange-500 text-orange-500 px-3 py-1 rounded mb-4 sm:mb-5">Est.
+                        2024</span>
+                    <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 leading-snug mb-4 sm:mb-5">Shopping
+                        Made<br>Simple & Smart</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-4">SmartShop was born from a simple idea — that
+                        everyone deserves access to quality products at honest prices, delivered with care. Since 2024,
+                        we've been building a marketplace that puts customers first, every single time.</p>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6 sm:mb-8">From fashion to electronics, we curate
+                        only
+                        the best — so you don't have to spend hours searching. We're based in Chittagong, Bangladesh,
+                        and we ship across the country with speed and reliability.</p>
+                    <a href="#products"
+                        class="inline-block text-white bg-orange-500 px-6 sm:px-7 py-2 sm:py-3 rounded text-sm font-semibold">Shop
+                        Now →</a>
+                </div>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
+                <div class="bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 text-center hover:shadow-lg">
+                    <p class="text-3xl sm:text-4xl font-bold mb-2 text-orange-500">50K+</p>
+                    <p class="text-sm font-medium text-gray-500">Happy Customers</p>
+                </div>
+                <div class="bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 text-center hover:shadow-lg">
+                    <p class="text-3xl sm:text-4xl font-bold mb-2 text-orange-500">1,200+</p>
+                    <p class="text-sm font-medium text-gray-500">Products Listed</p>
+                </div>
+                <div class="bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 text-center hover:shadow-lg">
+                    <p class="text-3xl sm:text-4xl font-bold mb-2 text-orange-500">3 Yrs</p>
+                    <p class="text-sm font-medium text-gray-500">In Business</p>
+                </div>
+                <div class="bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 text-center hover:shadow-lg">
+                    <p class="text-3xl sm:text-4xl font-bold mb-2 text-orange-500">4.9★</p>
+                    <p class="text-sm font-medium text-gray-500">Average Rating</p>
+                </div>
+            </div>
+
+            <!-- Meet the Owners -->
+            <div class="mb-4 text-center">
+                <p class="text-xs font-bold tracking-widest uppercase mb-2 text-orange-500">The Team</p>
+                <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 sm:mb-10">Meet the Owners</h3>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <div class="bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 text-center hover:shadow-lg">
+                    <img src="https://ik.imagekit.io/xrrsiofbq/Online%20shoping%20store/images/alvee.jpeg"
+                        class="w-24 h-24 rounded-full object-cover object-top border-4 border-gray-200 mx-auto mb-5"
+                        alt="Tahmid Alvee">
+                    <p class="text-xl font-bold text-gray-900 mb-1">Tahmid Alvee</p>
+                    <p class="text-xs font-bold tracking-widest uppercase mb-3 text-orange-500">Co-Founder & CEO</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">Visionary leader driving SmartShop's growth and
+                        strategy, ensuring every customer gets the best experience possible.</p>
+                </div>
+                <div class="bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 text-center hover:shadow-lg">
+                    <img src="https://ik.imagekit.io/xrrsiofbq/Online%20shoping%20store/images/soumen.jpg"
+                        class="w-24 h-24 rounded-full object-cover object-top border-4 border-gray-200 mx-auto mb-5"
+                        alt="Soumen Sen">
+                    <p class="text-xl font-bold text-gray-900 mb-1">Soumen Sen</p>
+                    <p class="text-xs font-bold tracking-widest uppercase mb-3 text-orange-500">Co-Founder & COO</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">Operations expert keeping SmartShop running
+                        smoothly — from sourcing the finest products to ensuring fast, reliable delivery.</p>
+                </div>
+                <div class="bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 text-center hover:shadow-lg">
+                    <img src="https://ik.imagekit.io/xrrsiofbq/Online%20shoping%20store/images/tokitul.jpeg"
+                        class="w-24 h-24 rounded-full object-cover object-top border-4 border-gray-200 mx-auto mb-5"
+                        alt="Tokitul Osmani">
+                    <p class="text-xl font-bold text-gray-900 mb-1">Tokitul Osmani</p>
+                    <p class="text-xs font-bold tracking-widest uppercase mb-3 text-orange-500">Co-Founder & CTO</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">Tech innovator behind SmartShop's seamless
+                        platform, building the digital experience that makes shopping truly smart.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DaisyUI FAQ Section  -->
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 pt-12 sm:pt-20 pb-12">
+        <div class="text-center mb-8 sm:mb-10">
+            <p class="text-xs font-bold tracking-widest uppercase mb-2 text-orange-500">Frequently Asked Questions</p>
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">Common Questions</h2>
+        </div>
+        <div class="flex flex-col gap-3">
+            <details class="border border-gray-200 rounded-xl p-5 group cursor-pointer">
+                <summary class="font-semibold text-gray-900 cursor-pointer list-none flex justify-between items-center">
+                    How long does delivery take?
+                    <span class="text-orange-500 text-lg font-bold group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <p class="text-gray-500 text-sm mt-3 leading-relaxed">We deliver within 3–5 business days across
+                    Bangladesh. Express delivery options are also available at checkout.</p>
+            </details>
+            <details class="border border-gray-200 rounded-xl p-5 group cursor-pointer">
+                <summary class="font-semibold text-gray-900 cursor-pointer list-none flex justify-between items-center">
+                    How do I use a coupon code?
+                    <span class="text-orange-500 text-lg font-bold group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <p class="text-gray-500 text-sm mt-3 leading-relaxed">Open the cart, enter your coupon code in the
+                    Coupon field and click Add. Try <strong class="text-black-500">SMART10</strong> for 10% off your
+                    order!</p>
+            </details>
+            <details class="border border-gray-200 rounded-xl p-5 group cursor-pointer">
+                <summary class="font-semibold text-gray-900 cursor-pointer list-none flex justify-between items-center">
+                    Can I return a product?
+                    <span class="text-orange-500 text-lg font-bold group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <p class="text-gray-500 text-sm mt-3 leading-relaxed">Yes, we offer a 7-day return policy on all
+                    eligible items. Contact us within 7 days of delivery to initiate a return.</p>
+            </details>
+            <details class="border border-gray-200 rounded-xl p-5 group cursor-pointer">
+                <summary class="font-semibold text-gray-900 cursor-pointer list-none flex justify-between items-center">
+                    What payment methods do you accept?
+                    <span class="text-orange-500 text-lg font-bold group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <p class="text-gray-500 text-sm mt-3 leading-relaxed">We accept bKash, Nagad, Rocket, and cash on
+                    delivery across all areas of Bangladesh.</p>
+            </details>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="w-full bg-stone-50 pb-12 sm:pb-20">
+        <div id="contact" class="max-w-xl sm:max-w-2xl mx-auto px-4 sm:px-6 pt-12 sm:pt-20 text-center">
+            <p class="text-xs font-bold tracking-widest uppercase mb-2 text-orange-500">Get In Touch</p>
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">Contact Us</h2>
+            <p class="text-gray-500 text-sm mb-8 sm:mb-10">Have a question or need help? Send us a message and we'll get
+                back to you
+                within 24 hours.</p>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-8 mb-8 sm:mb-10 text-xs text-gray-500">
+                <span>📧 smartshop@email.com</span>
+                <span>📞 +880 1705192734</span>
+                <span>📍 Chittagong, Bangladesh</span>
+            </div>
+
+            <form class="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 text-left">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                    <input type="text" placeholder="Your name"
+                        class="border border-gray-200 rounded-lg px-4 py-3 text-sm bg-stone-50 text-gray-900 outline-none">
+                    <input type="email" placeholder="Your email"
+                        class="border border-gray-200 rounded-lg px-4 py-3 text-sm bg-stone-50 text-gray-900 outline-none">
+                </div>
+                <textarea rows="4" placeholder="Your message..."
+                    class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm bg-stone-50 text-gray-900 outline-none resize-none mb-4"></textarea>
+                <button type="submit"
+                    class="w-full text-white bg-gray-900 py-3 rounded-lg text-sm font-semibold hover:bg-orange-500">
+                    Send Message →
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800">
+        <div class="border-t border-white/10"></div>
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 py-5 flex justify-center items-center">
+            <p class="text-gray-500 text-xs">© 2026 SmartShop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn"
+        class="fixed bottom-8 right-8 sm:bottom-6 sm:right-6 bg-orange-500 hover:bg-orange-600 text-white w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-2xl sm:text-3xl shadow-lg transition-all duration-300 z-50 hidden hover:bottom-10 sm:hover:bottom-8"
+        title="Back to top">
+        ↑
+    </button>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
+<!-- >>>>>>> de30e0d233ec3d328fe880ffef36c752649a434a -->
